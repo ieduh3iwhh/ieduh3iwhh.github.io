@@ -322,7 +322,7 @@
   font-size: 1.5em;
   font-style: normal;
   font-weight: 700;
-  color: #5bac4a;
+  color: #f3c1c1;
   margin-top: 3rem;
   margin-bottom: 1rem;
   display: block;
@@ -338,22 +338,22 @@
   letter-spacing: normal;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  color: #dedede;
+  color: #ab8787;
   display: block;
 }
 .content h3 {
   font-size: 0.9rem;
   font-weight: bold;
   text-decoration: underline;
-  color: #dedede;
+  color: #ab8787;
 }
 .content h4,
 .content h5,
 .content h6 {
   font-size: 0.9rem;
   font-weight: normal;
-  color: #ccc;
-  border-bottom: 1px dashed #ccc;
+  color: #6b6060;
+  border-bottom: 1px dashed #6b6060;
   display: inline;
   text-decoration: none;
 }
@@ -365,7 +365,7 @@
   margin-bottom: 0.5rem;
 }
 .content hr {
-  border: 1px dashed #ccc;
+  border: 1px dashed #6b6060;
 }
 .content strong {
   font-weight: bold;
@@ -422,7 +422,7 @@
 .content th {
   font-size: 14px;
   font-weight: bold;
-  color: #dedede;
+  color: #ab8787;
   border-bottom: 1px dashed #ccc;
   padding: 8px 8px;
 }
@@ -437,10 +437,10 @@
 }
 html {
   height: 100%;
-  border-top: 2px solid #b9babc;
+  border-top: 2px solid #a1a4a9;
 }
 body {
-  color: #b9babc;
+  color: #a1a4a9;
   background-color: #181818;
   font-size: 15px;
   font-family: "Menlo", monospace;
@@ -475,11 +475,11 @@ body {
 }
 .content a {
   text-decoration: none;
-  color: #b9babc;
+  color: #a1a4a9;
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, #b9babc 5px, #b9babc);
+  background-image: linear-gradient(transparent, transparent 5px, #a1a4a9 5px, #a1a4a9);
 }
 .content a:hover {
   background-image: linear-gradient(transparent, transparent 4px, #d41c46 4px, #d41c46);
@@ -557,7 +557,7 @@ body {
   line-height: 2rem;
   font-style: normal;
   font-weight: 700;
-  color: #b9babc;
+  color: #a1a4a9;
   margin-top: 0;
   margin-bottom: 0;
   -moz-osx-font-smoothing: grayscale;
@@ -585,7 +585,7 @@ body {
   font-size: 0.9rem;
   font-style: normal;
   font-weight: 200;
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #header #nav ul {
   list-style-type: none;
@@ -601,13 +601,13 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, #5bac4a 5px, #5bac4a);
+  background-image: linear-gradient(transparent, transparent 5px, #f3c1c1 5px, #f3c1c1);
 }
 #header #nav ul li {
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
-  border-right: 1px dotted #5bac4a;
+  border-right: 1px dotted #f3c1c1;
 }
 #header #nav ul .icon {
   display: none;
@@ -691,14 +691,14 @@ body {
   margin-left: 15px;
 }
 #header-post #menu-icon:hover {
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #header-post #menu-icon-tablet {
   float: right;
   margin-left: 15px;
 }
 #header-post #menu-icon-tablet:hover {
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #header-post #top-icon-tablet {
   margin-left: 15px;
@@ -707,10 +707,10 @@ body {
   position: fixed;
 }
 #header-post #top-icon-tablet:hover {
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #header-post .active {
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 @media screen and (max-height: 650px) {
   #header-post #menu {
@@ -722,7 +722,7 @@ body {
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 200;
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #header-post #nav ul {
   line-height: 15px;
@@ -735,10 +735,10 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, #5bac4a 5px, #5bac4a);
+  background-image: linear-gradient(transparent, transparent 5px, #f3c1c1 5px, #f3c1c1);
 }
 #header-post #nav ul li {
-  border-right: 1px dotted #5bac4a;
+  border-right: 1px dotted #f3c1c1;
 }
 #header-post #nav ul li:last-child {
   border-right: 0;
@@ -780,15 +780,15 @@ body {
   color: #d41c46;
 }
 #header-post #toc .toc-level-1 {
-  color: #b9babc;
+  color: #a1a4a9;
 }
 #header-post #toc .toc-level-2 {
   font-size: 0.9rem;
-  color: #b9babc;
+  color: #a1a4a9;
 }
 #header-post #toc .toc-level-2:before {
   content: "#";
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #header-post #toc .toc-level-3 {
   font-size: 0.8rem;
@@ -876,14 +876,14 @@ body {
   text-align: center;
 }
 #footer-post #nav-footer a {
-  color: #5bac4a;
+  color: #f3c1c1;
   font-size: 1rem;
 }
 #footer-post #nav-footer a:hover {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, #5bac4a 5px, #5bac4a);
+  background-image: linear-gradient(transparent, transparent 5px, #f3c1c1 5px, #f3c1c1);
 }
 #footer-post #nav-footer ul {
   list-style-type: none;
@@ -905,7 +905,7 @@ body {
   width: 100%;
 }
 #footer-post #actions-footer a {
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #footer-post #actions-footer ul {
   list-style-type: none;
@@ -952,15 +952,15 @@ body {
   color: #d41c46;
 }
 #footer-post #toc-footer .toc-level-1 {
-  color: #b9babc;
+  color: #a1a4a9;
 }
 #footer-post #toc-footer .toc-level-2 {
   font-size: 0.9rem;
-  color: #b9babc;
+  color: #a1a4a9;
 }
 #footer-post #toc-footer .toc-level-2:before {
   content: "#";
-  color: #5bac4a;
+  color: #f3c1c1;
 }
 #footer-post #toc-footer .toc-level-3 {
   font-size: 0.8rem;
@@ -1046,7 +1046,7 @@ article header .meta {
   margin-bottom: 1rem;
 }
 article header .meta * {
-  color: #ccc;
+  color: #6b6060;
   font-size: 0.85rem;
 }
 article header .author {
@@ -1059,7 +1059,7 @@ article header .postdate {
 }
 article .content h2:before {
   content: "#";
-  color: #5bac4a;
+  color: #f3c1c1;
   position: absolute;
   left: -1rem;
   top: -4px;
@@ -1353,7 +1353,7 @@ article .content .caption {
   width: 100%;
   margin: 0;
   padding-top: 1%;
-  color: #dedede;
+  color: #ab8787;
   text-align: center;
   background: #181818;
 }
@@ -1363,7 +1363,7 @@ article .content .caption {
   width: 100%;
   margin: 0;
   padding: 2%;
-  color: #dedede;
+  color: #ab8787;
   text-align: center;
   font-size: 40px;
   font-family: "Menlo", monospace;
