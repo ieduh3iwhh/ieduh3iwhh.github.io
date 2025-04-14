@@ -417,7 +417,7 @@
   font-size: 13px;
   border-collapse: collapse;
   text-align: left;
-  background: #3b3b3b;
+  background: #3e3e3e;
 }
 .content th {
   font-size: 14px;
@@ -441,7 +441,7 @@ html {
 }
 body {
   color: #b9babc;
-  background-color: #181818;
+  background-color: #1c1c1c;
   font-size: 15px;
   font-family: "Menlo", monospace;
   font-weight: 400;
@@ -856,7 +856,7 @@ body {
   transition: opacity 0.2s;
   width: 100%;
   z-index: 5000000;
-  background: #1d1d1d;
+  background: #212121;
   border-top: 1px solid #666673;
 }
 #footer-post a {
@@ -1355,7 +1355,7 @@ article .content .caption {
   padding-top: 1%;
   color: #f6c4c4;
   text-align: center;
-  background: #181818;
+  background: #1c1c1c;
 }
 .blogtitel {
   position: absolute;
@@ -2114,7 +2114,7 @@ pre code {
 }
 .highlight {
   font-family: "Menlo", monospace;
-  background: #3b3b3b;
+  background: #3e3e3e;
   -webkit-border-radius: 4px;
   border-radius: 7px;
   padding: 10px 15px;

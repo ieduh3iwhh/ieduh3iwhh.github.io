@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="杨辉三角是二项式系数在三角形中的一种几何排列。杨辉三角通过把二项式系数图形化，使组合数内在的一些代数性质直观地从图形中体现出来，是一种离散型的数与形的结合。下表在欧洲也被称作帕斯卡三角形。     杨辉三角最大的特点是：   每个数字等于上一行的左右两个数字之和。可用此性质写出整个杨辉三角。   即第 n + 1 行的第 i 个数等于第 n 行的第 i - 1 个数和第 i 个数之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPP&#x2F;C — 杨辉三角">
+<meta property="og:url" content="http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/index.html">
+<meta property="og:site_name" content="崎岖月">
+<meta property="og:description" content="杨辉三角是二项式系数在三角形中的一种几何排列。杨辉三角通过把二项式系数图形化，使组合数内在的一些代数性质直观地从图形中体现出来，是一种离散型的数与形的结合。下表在欧洲也被称作帕斯卡三角形。     杨辉三角最大的特点是：   每个数字等于上一行的左右两个数字之和。可用此性质写出整个杨辉三角。   即第 n + 1 行的第 i 个数等于第 n 行的第 i - 1 个数和第 i 个数之">
+<meta property="og:locale">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/67fc94b788c538a9b5cfde43.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/67fc8cf988c538a9b5cfb906.jpg">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/67fc912588c538a9b5cfcca9.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/67fc92ea88c538a9b5cfd54d.jpg">
+<meta property="article:published_time" content="2025-04-13T11:43:39.000Z">
+<meta property="article:modified_time" content="2025-04-14T08:14:28.632Z">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.imgdb.cn/item/67fc94b788c538a9b5cfde43.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CPP/C — 杨辉三角</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">崎岖月</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://ieduh3iwhh.github.io//">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2025/04/06/%E4%B8%80%E9%97%B4%E8%BF%9C%E6%B8%B8%E7%9A%84%E6%88%BF%E9%97%B4/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&text=CPP/C — 杨辉三角"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&is_video=false&description=CPP/C — 杨辉三角"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CPP/C — 杨辉三角&body=Check out this article: http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&name=CPP/C — 杨辉三角&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92%E7%9A%84%E6%95%B0%E5%AD%A6%E6%84%8F%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">杨辉三角的数学意义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">斐波那契数列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">1.2.</span> <span class="toc-text">谢尔宾斯基三角形</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E7%AE%97%E6%B3%95%E6%89%93%E5%8D%B0%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92"><span class="toc-number">2.</span> <span class="toc-text">用算法打印出杨辉三角</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">二维数组法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">递归法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">公式法</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CPP/C — 杨辉三角
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">崎岖月</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2025-04-13T11:43:39.000Z" itemprop="datePublished">2025-04-13</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    
+    <div id="aplayer-LumUOUte" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="13583302730" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
+    ></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/215098"><strong>杨辉三角</strong></a>是二项式系数在三角形中的一种几何排列。杨辉三角通过把二项式系数图形化，使组合数内在的一些代数性质直观地从图形中体现出来，是一种离散型的数与形的结合。下表在欧洲也被称作帕斯卡三角形。  <br><br><img src="https://pic1.imgdb.cn/item/67fc94b788c538a9b5cfde43.png" alt="杨辉三角" title="杨辉三角"><br>   杨辉三角最大的特点是：<br>   每个数字等于上一行的左右两个数字之和。可用此性质写出整个杨辉三角。<br>   即第 n + 1 行的第 i 个数等于第 n 行的第 i - 1 个数和第 i 个数之和。<br>   <strong>在用算法打印杨辉三角时，就是用 C(n + 1, i) &#x3D; C(n, i) + C(n, i - 1)的思想。</strong></p>
+</blockquote>
+<h1 id="杨辉三角的数学意义"><a href="#杨辉三角的数学意义" class="headerlink" title="杨辉三角的数学意义"></a>杨辉三角的数学意义</h1><h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><p>   将杨辉三角按如下图所示划出斜线，再求出斜线所经过的数字的和：1，1，2，3，5，8，13，21<br>此数列就是著名的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/99145">斐波那契数列</a> 。</p>
+<p>   <img src="https://pic1.imgdb.cn/item/67fc8cf988c538a9b5cfb906.jpg" alt="杨辉三角之斐波那契数列" title="杨辉三角之斐波那契数列"><br>   斐波那契数列中，从第三个数起，每个数与它后面那个数的比值，都很接近于0.618，正是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2/115896">黄金分割</a> 。<br>   因此斐波那契数列又称 黄金分割数列 。<br><br>   这个看上去很简单的数列，总是出现在人们的眼前。蜻蜓翅膀、蜂巢、菠萝表面的突起等，都是按照这个数列排列的。许多花朵的花瓣数目也具有斐波纳契数列的排列规律，如玫瑰、菊花、向日葵等。</p>
+<h2 id="谢尔宾斯基三角形"><a href="#谢尔宾斯基三角形" class="headerlink" title="谢尔宾斯基三角形"></a>谢尔宾斯基三角形</h2><p>   杨辉三角除了在数值上蕴藏了斐波那契数列的奥秘，在几何上也体现了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2/1332191">谢尔宾斯基三角形</a>的数学之艺术美。<br>   谢宾斯基三角形（Sierpinski triangle）是一种分形，由波兰数学家谢宾斯基在1915年提出。它是一种自相似集。</p>
+<p>   <img src="https://pic1.imgdb.cn/item/67fc912588c538a9b5cfcca9.png" alt="谢尔宾斯基三角形" title="谢尔宾斯基三角形"><br>   如果用笔将杨辉三角中的偶数与奇数分别标出，可以看到所有的偶数都会呈现出倒立的等边三角形状排列，而奇数都成正立的三角形排列，且等边三角形（偶数）的边长依次为：3，7，15，31，63…即所有的偶数依次排出以（2的n次幂-1）的长度为边长的倒立的等边三角形。<br><br>   将所有等边三角形中的偶数去掉，剩下的图形是一个类似于分形几何中的谢尔宾斯基三角形，这种三角形是研究自然界大量存在的不规则现象（海岸线性状、大气运动、海洋湍流、野生生物群体涨落，股市升降等）的崭新数学工具。</p>
+<p>   <img src="https://pic1.imgdb.cn/item/67fc92ea88c538a9b5cfd54d.jpg" alt="杨辉三角之谢尔宾斯基三角形" title="杨辉三角之谢尔宾斯基三角形"></p>
+<h1 id="用算法打印出杨辉三角"><a href="#用算法打印出杨辉三角" class="headerlink" title="用算法打印出杨辉三角"></a>用算法打印出杨辉三角</h1><p>简单了解了什么是杨辉三角后，我们尝试用算法将杨辉三角打印出来。当输入一个数 n 时，打印出 n 行杨辉三角。<br>下面介绍三种简单易懂的方式打印杨辉三角：</p>
+<ul>
+<li>二维数组法</li>
+<li>递归法</li>
+<li>公式法</li>
+</ul>
+<h2 id="二维数组法"><a href="#二维数组法" class="headerlink" title="二维数组法"></a>二维数组法</h2><pre><code>
+#include < bits/stdc++.h >
+using namespace std;
+int main()
+&#123;
+	int n;
+	cin>>n;
+	int a[100][100];
+	a[0][0]=1;
+	a[1][0]=1;
+	a[1][1]=1; 
+	if(n==1) cout<<"1"<< endl;
+	else if(n==2) cout<<"1"<< endl<<"1 1"<< endl; <em style="color:pink">//单独打印无规律的前两排</em>
+	else 
+	&#123;
+		cout<<"1"<< endl<<"1 1"<< endl;
+		for(int i=2;i< n ;i++)
+		&#123;
+			for(int j=0;j < i+1;j++)
+			&#123;
+				if(j==0||j==i+1) a[i][j]=1;
+				else a[i][j]=a[i-1][j-1]+a[i-1][j]; <em style="color:pink">//每个数字等于上一行的左右两个数字之和</em> 
+			&#125;
+		&#125;
+		for(int i=2;i < n;i++) 
+		&#123;
+			for(int j=0;j < i+1;j++)
+			&#123;
+				cout<< a[i][j] <<" "; <em style="color:pink">//打印杨辉三角</em> 
+			&#125;
+			cout<< endl;
+		&#125;
+	&#125;
+	return 0;
+&#125;
+</code></pre>
+<h2 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h2><p>递归写法的思路和第一种二维数组的写法思路相似<br>我们把杨辉三角的所有元素全部都看成两类元素：第一类是对角线和第一列的1，第二类是其他的元素。<br>第二类的元素是由上面的 <strong>arr [ i - 1 ] [ j ] + arr [ i - 1] [ j - 1]</strong> 构成的，<br>所以我们在用递归写的时候，当满足条件的时候就返回1，不满足的时候就返回上两个元素的和。<br>代码展示如下</p>
+<pre><code>
+#include < stdio.h >
+int fun(int m, int n)
+&#123;
+	<em style="color:pink">//除了对角线和第一列之外，其他元素都是上两个数字之和</em> 
+	if (n == 0 || m == n)
+		return 1;
+	else
+		return fun(m - 1, n) + fun(m - 1, n - 1);
+&#125;
+
+int main()
+&#123;
+	int i, j;
+	int n = 0;
+	scanf("%d", &n);
+
+	for (i = 0; i < n; i++)
+	&#123;
+		for (j = 0; j < n - 1 - i; j++)
+		&#123;
+			printf(" ");
+		&#125;
+		for (j = 0; j <= i; j++)
+			printf("%d ", fun(i, j));
+		printf("\n");
+	&#125;
+	return 0;
+&#125;
+</code></pre>
+<h2 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h2><pre><code>
+#include< stdio.h >
+int fun2(int num)
+&#123;
+	int sum = 1;
+	for (int i = 1; i <= num; i++)
+	&#123;
+		sum *= i;
+	&#125;
+
+	return sum;
+&#125;
+int fun(int n, int m)
+&#123;
+	int ret = fun2(n);
+	int dat = fun2(m);
+	int un = fun2(n - m);
+
+	<em style="color:pink">//公式:C(n - 1, m - 1) = (n - 1)!/ [(m - 1)!(n - m)!]</em> 
+	return ret / (dat * un);
+&#125;
+
+int main()
+&#123;
+	int i = 0;
+	int j = 0;
+	int n = 0;
+	scanf("%d", &n);
+	
+	<em style="color:pink">//这里i和j要从1开始，否则公式就会出现求负数的阶乘</em>
+	for (i = 1; i <= n; i++)
+	&#123;
+		for (j = 0; j < n - 1 - i; j++)
+		&#123;
+			printf(" ");
+		&#125;
+		for (j = 1; j <= i; j++)
+		&#123;
+			int C = fun(i - 1, j - 1);
+			printf("%d ", C);
+		&#125;
+		printf("\n");
+	&#125;
+	return 0;
+&#125;
+</code></pre>
+<br>
+综上，感谢观看。
+
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://ieduh3iwhh.github.io//">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92%E7%9A%84%E6%95%B0%E5%AD%A6%E6%84%8F%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">杨辉三角的数学意义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">斐波那契数列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">1.2.</span> <span class="toc-text">谢尔宾斯基三角形</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E7%AE%97%E6%B3%95%E6%89%93%E5%8D%B0%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92"><span class="toc-number">2.</span> <span class="toc-text">用算法打印出杨辉三角</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">二维数组法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">递归法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">公式法</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&text=CPP/C — 杨辉三角"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&is_video=false&description=CPP/C — 杨辉三角"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CPP/C — 杨辉三角&body=Check out this article: http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&title=CPP/C — 杨辉三角"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/13/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/&name=CPP/C — 杨辉三角&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2025 崎岖月
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a target="_blank" rel="noopener" href="https://ieduh3iwhh.github.io//">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
